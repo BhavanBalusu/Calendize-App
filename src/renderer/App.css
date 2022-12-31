@@ -1,0 +1,97 @@
+* {
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  /* background-image: url('./Images/forest.jpg'); */
+  overflow: hidden;
+}
+
+img.bg-image {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+html,
+body {
+  margin: 0px;
+  /* overflow: hidden; */
+}
+
+.hideCursor {
+  /* cursor: none; */
+}
+
+.component-holder {
+  flex-direction: column;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.sign-out-button {
+  position: fixed;
+  background-color: rgb(255, 63, 25);
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  width: 100px;
+  height: 25px;
+  /* transform: translateY(-25px); */
+
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sign-out-button:hover {
+  filter: brightness(0.8);
+  cursor: pointer;
+}
+
+.move-down {
+  transform: translateY(55px);
+}
+
+.first-horizontal-bar{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 90vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+div.temp1{
+  /* padding: 10px 10px 10px 10px; */
+  height: 220px;
+  width: 320px;
+  height: 270px;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 40px 2px rgb(74, 73, 73);
+}
+
+div.temp2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(40vw, 10vh);
+
+}
+
+div.temp3{
+  max-width: 500px;
+  width: 30vw;
+  min-width: 340px;
+  display: flex;
+  justify-content: end;
+  border-radius: 1rem;
+  height: 270px;
+  box-shadow: 2px 2px 40px 2px rgb(74, 73, 73);
+}
