@@ -23,6 +23,10 @@ export default function Time() {
         hr -= 12;
         stateOfDay = 'PM';
       }
+
+      if( hr === 0 && stateOfDay==='AM'){
+        hr = 12;
+      }
       if (min < 10) min = `0${min}`;
       setTimeOfDay(stateOfDay);
       setTime(`${hr}:${min}`);

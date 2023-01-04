@@ -3,6 +3,7 @@ import { doc, query, collection, where, getDocs, updateDoc, onSnapshot } from "f
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from "../firebase";
 import '../Styles/Weather.css';
+import PlaceholderLoading from 'react-placeholder-loading'
 
 const IncorrectData = () => {
   return (

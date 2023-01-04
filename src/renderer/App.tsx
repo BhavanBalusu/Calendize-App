@@ -48,7 +48,7 @@ const Main = () => {
   async function loadData() {
     await getUser();
     if (user !== '') {
-      fetch('http://127.0.0.1:5000/addCalendar', {
+      fetch('https://calendize-backend.onrender.com/addCalendar', {
         method: 'POST',
         body: JSON.stringify({ user }),
         mode: 'no-cors',
@@ -144,7 +144,6 @@ export default function App() {
         <Route path="/disp" element={<Main />} />;
         <Route path="/register" element={<Register />} />
         <Route path="/reset" element={<Reset />} />
-        <Route path="/ics" element={<Ics />} />
         <Route path="photo" element={<Photo />} />
       </Routes>
     </Router>

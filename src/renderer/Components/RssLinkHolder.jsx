@@ -34,7 +34,7 @@ function RssLinkHolder(props) {
 
   async function loadData() {
     if (user !== '') {
-      await fetch('http://127.0.0.1:5000/readRssLinks', {
+      await fetch('https://calendize-backend.onrender.com/readRssLinks', {
         method: 'POST',
         body: JSON.stringify({ user })
       })

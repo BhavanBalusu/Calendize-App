@@ -19,8 +19,7 @@ function Photo() {
       }
       if (arr.includes(base64) === false) arr.push(base64)
       else {
-        (alert("this file has already been added."))
-          (alert("this image has already been added."))
+        alert("this file has already been added.")
         added = false;
       }
       localStorage.setItem("pictures", JSON.stringify(arr))
@@ -71,10 +70,10 @@ function Photo() {
         <label htmlFor="file-input" className='file-label'><i class="bi bi-upload"></i>Upload Image</label>
         <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/svg, image/png" onChange={(e) => inputChange(e)} />
       </form>
-      <button className="delete-button" onClick={() => deleteImages()}>Clear all images</button>
+      <button className="delete-button" onClick={() => {if(confirm("Delete all images?")){deleteImages();}}}>Clear all images</button>
       <h2>View Added Images</h2>
       <div className="image-gallery">
-        {pics !== null ? pics.map((img, index) => <div className="gallery-image" key={index}><i className="bi bi-x delete-image" onClick={() => delImage(index)}></i><img className="gallery-img" src={img} /></div>) : <>Loading...</>}
+        {pics !== null ? pics.map((img, index) => <div className="gallery-image" key={index}><i className="bi bi-x delete-image" onClick={() => delImage(index)}></i><img className="gallery-img" src={img} /></div>) : <></>}
       </div>
     </div>
   );

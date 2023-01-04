@@ -49,12 +49,12 @@ export default function EventsHolder() {
             let data = event.data();
             let time = data.day.toDate().toLocaleTimeString()
             let timeStr = time.substring(0, time.lastIndexOf(':')) + time.substring(time.lastIndexOf(' '))
-
+            time = data.end.toDate().toLocaleTimeString()
+            let timeStr2 = time.substring(0, time.lastIndexOf(':')) + time.substring(time.lastIndexOf(' '))
             let dur = data.duration;
 
 
-            eventsArr.push({ name: data.name, details: data.details, day: data.day.toDate(), start_time: timeStr, duration: dur, docID: event.id, user: user, end: data.end.toDate() })
-
+            eventsArr.push({ name: data.name, details: data.details, day: data.day.toDate(), start_time: timeStr, duration: dur, docID: event.id, user: user, end_time: timeStr2 })
           })
 
           setEvents(eventsArr)
@@ -72,7 +72,8 @@ export default function EventsHolder() {
     <div className="events-component">
       <h1 className="events-title">{events.length === 0 ? "" : ""}</h1>
       <div className="events-holder">
-        {events.map((event, i) => <div className="event-wrapper" key={"wrapper " + i}>{(i == 0 || events[i].day.getDate() !== events[i - 1].day.getDate()) ? <p style={{ fontSize: '30px', width: '90%' }} className="date" key={"Date " + i} >{days[event.day.getDay()] + ", " + months[event.day.getMonth()].toLowerCase() + " " + event.day.getDate()} <hr></hr></p> : " "}<Event event={event} key={i} /></div>)
+        {events.map((event, i) => <div className="event-wrapper" key={"wrapper " + i}>
+          {(i == 0 || events[i].day.getDate() !== events[i - 1].day.getDate()) ? <p style={{ fontSize: '30px', width: '90%' }} className="date" key={"Date " + i} >{days[event.day.getDay()] + ", " + months[event.day.getMonth()].toLowerCase() + " " + event.day.getDate()} <hr></hr></p> : " "}<Event event={event} key={i} /></div>)
         }
       </div>
     </div>
