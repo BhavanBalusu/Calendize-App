@@ -21,6 +21,9 @@ export default function Time() {
 
       if (hr > 12) {
         hr -= 12;
+      }
+
+      if (hr >= 12) {
         stateOfDay = 'PM';
       }
 

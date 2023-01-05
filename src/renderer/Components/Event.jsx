@@ -28,10 +28,8 @@ export default function Event(props) {
       <div className="event" style={{ borderColor: `rgb(${Math.floor(Math.random() * 255 + 35)}, ${Math.floor(Math.random() * 255 + 35)}, ${Math.floor(Math.random() * 255 + 35)})` }} >
         <p>{props.event.name}</p>
         <p>{props.event.details}</p>
-        <p>{props.event.start_time}</p>
-        <p>{props.event.duration.hours} {props.event.duration.hours === "1" ? "Hr" : "Hrs"} {props.event.duration.mins}  {props.event.duration.mins === "1" ? "Min" : "Mins"}</p>
-        <p>{props.event.end_time}</p>
-      </div >
+        <p>{props.event.start_time} - {props.event.end_time}</p>
+      </div>
     </>
 
   );
