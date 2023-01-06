@@ -31,9 +31,7 @@
 .horizontal-two-holder .widgets-holder .weather-rss-holder {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-left: 5%;
-  margin-right: 5%;
+  justify-content: space-evenly;
   padding-top: 20px;
 }
 
