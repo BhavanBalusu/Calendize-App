@@ -1,7 +1,8 @@
 .events-component {
   /* font-family: 'Roboto', sans-serif; */
   margin-top: 10%;
-  width: 80%;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.37);
   border-radius: 1rem;
   box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.2);
@@ -20,8 +21,7 @@
   display: flex;
   flex-direction: column;
   font-family: Helvetica;
-  width: 80vw;
-  margin: 0px;
+  margin: 10px 0px 10px 0px;
   padding: 0px;
   align-items: center;
   color: white;
@@ -49,14 +49,16 @@
   color: rgb(215, 215, 215);
 }
 
+<<<<<<< HEAD
 p.time{
+=======
+p.time {
+>>>>>>> e3d42184b897686c009444b1ebbbecfd1b3512d7
   color: rgb(215, 215, 215);
   padding-left: 20px;
-
-
 }
 
-p.title{
+p.title {
 }
 
 .date {
@@ -76,13 +78,20 @@ p.title{
 }
 
 .events-holder {
-  height: 40vh;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   padding-bottom: 20px;
 }
 
+<<<<<<< HEAD
 .event-wrapper hr{
   margin-top: 0px;
 }
 
+=======
+.event-wrapper hr {
+  margin-top: 0px;
+}
+>>>>>>> e3d42184b897686c009444b1ebbbecfd1b3512d7
