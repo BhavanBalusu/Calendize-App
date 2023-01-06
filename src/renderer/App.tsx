@@ -13,7 +13,6 @@ import EventsHolder from './Components/EventsHolder';
 import NavigationBar from './Components/NavigationBar';
 import { auth, db } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Ics from './Components/Ics';
 import Photo from './Components/Photo';
 import Time from './Components/Time';
 import RssLinkHolder from './Components/RssLinkHolder';
@@ -119,19 +118,18 @@ const Main = () => {
       <NavigationBar text={'disp'} />
 
       <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
-      <div className='first-horizontal-bar'>
-        <div className='temp1'>
+      <div className="first-horizontal-bar">
+        <div className="temp1">
           <Weather />
         </div>
-        <div className='temp2'>
-          <Time/>
+        <div className="temp2">
+          <Time />
         </div>
-        <div className='temp3'>
+        <div className="temp3">
           <RssLinkHolder uid={user} />
         </div>
       </div>
       <EventsHolder />
-
     </div>
   );
 };

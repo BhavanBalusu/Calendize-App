@@ -106,7 +106,7 @@ export default function Weather() {
   return (
     <div className="weather" >
       <p className="cityName">
-        <i class="bi bi-geo-fill"></i> {theLoc}
+        <i className="bi bi-geo-fill"></i> {theLoc}
       </p>
       <div className="tempInfo">
         <h2 className="temp">{temp}˚F</h2>

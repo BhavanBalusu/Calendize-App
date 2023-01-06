@@ -150,7 +150,7 @@ function RssLinkHolder(props) {
     <div className='news-container'>
       <div className='titles'>
         <h2>Latest Headlines</h2>
-        <i class="bi bi-newspaper"></i>
+        <i className="bi bi-newspaper"></i>
       </div>
 
       {(title.length === 0)?
