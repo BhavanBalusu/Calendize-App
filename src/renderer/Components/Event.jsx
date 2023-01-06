@@ -4,6 +4,20 @@ import { db } from '../firebase';
 import '../Styles/Event.css'
 
 export default function Event(props) {
+  const [red, setRed] = useState();
+  const [green, setGreen] = useState();
+  const [blue, setBlue] = useState();
+
+  const randColor = () => {
+      setRed(Math.floor(Math.random() * 220 + 35))
+      setGreen(Math.floor(Math.random() * 220 + 35))
+      setBlue(Math.floor(Math.random() * 220 + 35))
+  }
+
+  useEffect(() => {
+    randColor()
+  },[])
+
   let delInterval = setInterval(() => { }, 1000)
   const del = async (e) => {
     console.log("in delete method!")
@@ -25,10 +39,10 @@ export default function Event(props) {
 
   return (
     <>
-      <div className="event" style={{ borderColor: `rgb(${Math.floor(Math.random() * 255 + 35)}, ${Math.floor(Math.random() * 255 + 35)}, ${Math.floor(Math.random() * 255 + 35)})` }} >
-        <p>{props.event.name}</p>
+      <div className="event" style={{ borderColor: `rgb(${red}, ${green}, ${blue})` }} >
+        <p className='time'>{props.event.start_time} - {props.event.end_time}</p>
+        <p style={{textAlign:"center"}} >{props.event.name}</p>
         <p>{props.event.details}</p>
-        <p>{props.event.start_time} - {props.event.end_time}</p>
       </div>
     </>
 

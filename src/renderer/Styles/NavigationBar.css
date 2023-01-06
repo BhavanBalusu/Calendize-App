@@ -32,7 +32,7 @@
 .menuNav {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: rgb(213, 213, 213);
   position: absolute;
   width: 250px;
   z-index: 100;
@@ -48,7 +48,7 @@
 
 .close {
   text-align: left;
-  margin: 10px 10px 0px 10px;
+  margin: 10px 10px 10px 10px;
 }
 
 .bi.bi-x-lg {
@@ -73,7 +73,7 @@
 }
 
 .menuNav.closeMenu {
-  background: white;
+  background: rgb(219, 217, 217);
   height: 0%;
 }
 
@@ -88,11 +88,19 @@
   justify-content: center;
   position: relative;
   padding: 0.2em 0;
+  /* background: rgb(244, 244, 244); */
+  width: 240px;
+  position: relative;
+  left: -33px;
 }
 
 button.disp, button.photo{
-  width: 70%;
+  width: 240px;
   align-self: center;
+  position: relative;
+  left: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .button-holder button::after{
   opacity: 1;
@@ -143,7 +151,7 @@ button:focus::after {
   font-size: 20px;
   color: gray;
   display: flex;
-  margin-top: 10px;
+  margin-top: 2px;
   padding-top: 5px;
 }
 

@@ -73,7 +73,7 @@ export default function EventsHolder() {
       <h1 className="events-title">{events.length === 0 ? "" : ""}</h1>
       <div className="events-holder">
         {events.map((event, i) => <div className="event-wrapper" key={"wrapper " + i}>
-          {(i == 0 || events[i].day.getDate() !== events[i - 1].day.getDate()) ? <p style={{ fontSize: '30px', width: '90%' }} className="date" key={"Date " + i} >{days[event.day.getDay()] + ", " + months[event.day.getMonth()].toLowerCase() + " " + event.day.getDate()} <hr></hr></p> : " "}<Event event={event} key={i} /></div>)
+          {(i == 0 || events[i].day.getDate() !== events[i - 1].day.getDate()) ? <p style={{ fontSize: '30px', width: '90%' }} className="date" key={"Date " + i} ><span style={{color:"white", fontSize:"35px", fontWeight:"800"}}>{days[event.day.getDay()]}</span>{", " + months[event.day.getMonth()].toLowerCase() + " " + event.day.getDate()} <hr></hr></p> : " "}<Event event={event} key={i} /></div>)
         }
       </div>
     </div>

@@ -96,3 +96,16 @@ div.temp3 {
   height: 270px;
   box-shadow: 2px 2px 40px 2px rgb(74, 73, 73);
 }
+
+::-webkit-scrollbar {
+  cursor: pointer;
+	background: transparent;
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+	background: #697c98;
+	border-radius: 20px;
+	width: 10px;
+}
