@@ -19,12 +19,12 @@ export default function Time() {
       let dates = date + " " + day + " " + month + " " + year;
       setDates(`${day}, ${month} ${date}, ${year}`);
 
-      if (hr > 12) {
-        hr -= 12;
-      }
-
       if (hr >= 12) {
         stateOfDay = 'PM';
+      }
+
+      if (hr > 12) {
+        hr -= 12;
       }
 
       if( hr === 0 && stateOfDay==='AM'){
