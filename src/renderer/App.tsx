@@ -133,7 +133,9 @@ const Main = () => {
             <RssLinkHolder uid={user} />
           </div>
         </div>
-        <EventsHolder />
+        <div className="events-component-holder">
+          <EventsHolder />
+        </div>
       </div>
     );
   };
@@ -161,7 +163,7 @@ const Main = () => {
     );
   };
 
-  return <HorizontalTwo />;
+  return <HorizontalOne />;
 };
 
 export default function App() {
