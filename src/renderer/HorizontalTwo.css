@@ -1,0 +1,44 @@
+.horizontal-two-holder {
+  margin: 0px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.horizontal-two-holder .image-time-holder {
+  width: 40vw;
+  text-align: center;
+}
+
+.horizontal-two-holder .image-time-holder .timeWidget {
+  margin-top: 100px;
+}
+
+.horizontal-two-holder .image-time-holder .bg-image {
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.horizontal-two-holder .widgets-holder {
+  background-color: rgb(40, 40, 40);
+  width: 60vw;
+  height: 100vh;
+}
+
+.horizontal-two-holder .widgets-holder .weather-rss-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 20px;
+}
+
+.horizontal-two-holder .widgets-holder .events-widget {
+  height: 100%;
+  width: 95%;
+  margin-left: 2.5%;
+}

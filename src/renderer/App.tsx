@@ -1,6 +1,7 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
-import './App.css';
+import './HorizontalOne.css';
+import './HorizontalTwo.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Weather from './Components/Weather';
 // import Time from './Components/Time';
@@ -23,6 +24,7 @@ const Main = () => {
   let index = 1;
   const [user, setUser] = useState('');
   const [currUser, loading] = useAuthState(auth);
+  const [layout, setLayout] = useState('');
 
   async function getUser() {
     if (currUser == null) {
@@ -37,6 +39,7 @@ const Main = () => {
       const userID = userDoc.docs[0].id;
 
       setUser(userID);
+      setLayout('HorizontalOne');
     } catch (err) {
       console.log(err);
       alert('An error had occurred while fetching the users name');
@@ -113,25 +116,52 @@ const Main = () => {
   // changeImage();
   let chngImg = setInterval(changeImage, 1000 * 10);
 
-  return (
-    <div className="component-holder">
-      <NavigationBar text={'disp'} />
+  const HorizontalOne = () => {
+    return (
+      <div className="component-holder">
+        <NavigationBar text={'disp'} />
 
-      <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
-      <div className="first-horizontal-bar">
-        <div className="temp1">
-          <Weather />
+        <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
+        <div className="first-horizontal-bar">
+          <div className="temp1">
+            <Weather />
+          </div>
+          <div className="temp2">
+            <Time />
+          </div>
+          <div className="temp3">
+            <RssLinkHolder uid={user} />
+          </div>
         </div>
-        <div className="temp2">
-          <Time />
+        <EventsHolder />
+      </div>
+    );
+  };
+
+  const HorizontalTwo = () => {
+    return (
+      <div className="horizontal-two-holder">
+        {/* <NavigationBar text={'disp'} /> */}
+        <div className="image-time-holder">
+          <div className="timeWidget">
+            <Time />
+          </div>
+          <img className="bg-image" src="" alt="" ref={imgRef} />
         </div>
-        <div className="temp3">
-          <RssLinkHolder uid={user} />
+        <div className="widgets-holder">
+          <div className="weather-rss-holder">
+            <Weather />
+            <RssLinkHolder uid={user} />
+          </div>
+          <div className="events-widget">
+            <EventsHolder />
+          </div>
         </div>
       </div>
-      <EventsHolder />
-    </div>
-  );
+    );
+  };
+
+  return <HorizontalTwo />;
 };
 
 export default function App() {
