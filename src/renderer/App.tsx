@@ -141,23 +141,23 @@ const Main = () => {
   const HorizontalTwo = () => {
     return (
       <div className="horizontal-two-holder">
-        {/* <NavigationBar text={'disp'} /> */}
-        <div className="image-time-holder">
-          <div className="timeWidget">
-            <Time />
-          </div>
-          <img className="bg-image" src="" alt="" ref={imgRef} />
+      {/* <NavigationBar text={'disp'} /> */}
+      <div className="image-time-holder">
+        <div className="timeWidget">
+          <Time />
         </div>
-        <div className="widgets-holder">
-          <div className="weather-rss-holder">
-            <Weather />
-            <RssLinkHolder uid={user} />
-          </div>
-          <div className="events-widget">
-            <EventsHolder />
-          </div>
+        <img className="bg-image" src="" alt="" ref={imgRef} />
+      </div>
+      <div className="widgets-holder">
+        <div className="weather-rss-holder">
+          <Weather />
+          <RssLinkHolder uid={user} />
+        </div>
+        <div className="events-widget">
+          <EventsHolder />
         </div>
       </div>
+    </div>
     );
   };
 

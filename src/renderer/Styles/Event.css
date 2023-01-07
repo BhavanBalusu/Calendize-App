@@ -49,11 +49,7 @@
   color: rgb(215, 215, 215);
 }
 
-<<<<<<< HEAD
 p.time{
-=======
-p.time {
->>>>>>> e3d42184b897686c009444b1ebbbecfd1b3512d7
   color: rgb(215, 215, 215);
   padding-left: 20px;
 }
@@ -85,13 +81,7 @@ p.title {
   padding-bottom: 20px;
 }
 
-<<<<<<< HEAD
 .event-wrapper hr{
   margin-top: 0px;
 }
 
-=======
-.event-wrapper hr {
-  margin-top: 0px;
-}
->>>>>>> e3d42184b897686c009444b1ebbbecfd1b3512d7
