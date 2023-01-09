@@ -7,7 +7,7 @@ import './VerticalTwo.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Weather from './Components/Weather';
 // import Time from './Components/Time';
-import { collection, where, query, getDocs } from 'firebase/firestore';
+import { collection, where, query, getDocs, doc, onSnapshot } from 'firebase/firestore';
 
 import Sign from './Components/SignIn';
 import Register from './Components/Register';
@@ -42,7 +42,7 @@ const Main = () => {
       const userID = userDoc.docs[0].id;
       const data = userDoc.docs[0].data();
       setUser(userID);
-      console.log(typeof data.layout)
+      console.log(data.layout)
       setLayout(data.layout);
     } catch (err) {
       console.log(err);
@@ -61,6 +61,42 @@ const Main = () => {
       });
     }
   }
+
+  // useEffect(() => {
+  //   const func = async () => {
+  //     await getUserLayout();
+  //   }
+
+  //   func()
+
+  // }, [currUser])
+
+
+
+  // const getUserLayout = async () => {
+  //   if (currUser == null) {
+  //     return;
+  //   }
+  //   try {
+  //     const q = query(
+  //       collection(db, 'users'),
+  //       where('uid', '==', currUser?.uid)
+  //     );
+  //     const userDoc = await getDocs(q);
+  //     const userID = userDoc.docs[0].id;
+  //     const unsub = onSnapshot(doc(db, "users", userID), (doc) => {
+  //       setLayout(userDoc.docs[0].data().layout);
+  //     })
+
+  //   } catch (err) {
+  //     console.log(err);
+  //     alert('An error had occurred while fetching the users name');
+  //     return;
+
+  //   }
+  // }
+
+
 
   const hideMouse = () => {
     const getMouseCoords = () => {
@@ -217,10 +253,25 @@ const Main = () => {
     );
   };
 
-  return <HorizontalTwo/>
+  function finalLayout(){
+    if(layout==="H1"){
+      return <HorizontalOne/>;
+    }
+    else if(layout ==="H2"){
+      return <HorizontalTwo/>;
+    }
+    else if(layout === "V1"){
+      return <VerticalOne/>;
+    } else{
+      return <VerticalTwo/>;
+    }
+  }
+
+  return finalLayout()
 };
 
 export default function App() {
+
   return (
     <Router>
       <Routes>
