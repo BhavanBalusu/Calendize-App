@@ -2,6 +2,8 @@ import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import './HorizontalOne.css';
 import './HorizontalTwo.css';
+import './VerticalOne.css';
+import './VerticalTwo.css'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Weather from './Components/Weather';
 // import Time from './Components/Time';
@@ -17,6 +19,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Photo from './Components/Photo';
 import Time from './Components/Time';
 import RssLinkHolder from './Components/RssLinkHolder';
+import { type } from 'os';
 
 const Main = () => {
   // const startTimer = () => (hideElements = setInterval(hideMouse, 3000));
@@ -37,9 +40,10 @@ const Main = () => {
       );
       const userDoc = await getDocs(q);
       const userID = userDoc.docs[0].id;
-
+      const data = userDoc.docs[0].data();
       setUser(userID);
-      setLayout('HorizontalOne');
+      console.log(typeof data.layout)
+      setLayout(data.layout);
     } catch (err) {
       console.log(err);
       alert('An error had occurred while fetching the users name');
@@ -140,22 +144,23 @@ const Main = () => {
     );
   };
 
+
   const HorizontalTwo = () => {
     return (
       <div className="horizontal-two-holder">
-      {/* <NavigationBar text={'disp'} /> */}
       <div className="image-time-holder">
+        <NavigationBar text={'disp'} />
         <div className="timeWidget">
           <Time />
         </div>
         <img className="bg-image" src="" alt="" ref={imgRef} />
       </div>
       <div className="widgets-holder">
-        <div className="weather-rss-holder">
+        <div className="box1">
           <Weather />
           <RssLinkHolder uid={user} />
         </div>
-        <div className="events-widget">
+        <div className="box2">
           <EventsHolder />
         </div>
       </div>
@@ -163,7 +168,56 @@ const Main = () => {
     );
   };
 
-  return <HorizontalOne />;
+  const VerticalOne = () =>{
+    return(
+      <div className="component-holder">
+        <NavigationBar text={'disp'} />
+        <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
+        <div className="first-vertical-bar">
+          <Time />
+        </div>
+        <div className="second-vertical-bar">
+          <div className="box1">
+            <Weather />
+          </div>
+          <div className="box2">
+            <RssLinkHolder uid={user} />
+          </div>
+        </div>
+        <div className="third-vertical-bar">
+          <EventsHolder />
+        </div>
+      </div>
+    );
+  };
+
+  const VerticalTwo = () =>{
+    return(
+      <div className="component-holder two">
+        <NavigationBar text={'disp'} />
+        <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
+        <div className="first-vertical-bar">
+          <Time />
+        </div>
+
+        <div className="second-second-vertical-bar">
+          <div className="second-vertical-bar">
+            <div className="box1">
+              <Weather />
+            </div>
+            <div className="box2">
+              <RssLinkHolder uid={user} />
+            </div>
+          </div>
+          <div className="second-third-vertical-bar">
+            <EventsHolder />
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return <HorizontalTwo/>
 };
 
 export default function App() {

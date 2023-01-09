@@ -25,18 +25,23 @@
 .horizontal-two-holder .widgets-holder {
   background-color: rgb(40, 40, 40);
   width: 60vw;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.horizontal-two-holder .widgets-holder .weather-rss-holder {
+.horizontal-two-holder .widgets-holder .box1 {
+  padding-top: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  padding-top: 20px;
+  height: 33vh;
 }
 
-.horizontal-two-holder .widgets-holder .events-widget {
-  height: 100%;
-  width: 95%;
+.horizontal-two-holder .widgets-holder .box2 {
   margin-left: 2.5%;
+  margin-right: 2.5%;
+  display: flex;
+  border-radius: 15px;
+  height: 65vh;
+  overflow-y: auto;
 }

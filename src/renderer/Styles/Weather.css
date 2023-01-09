@@ -54,7 +54,7 @@ div.weather #des{
 .temp {
   color: black;
   text-align: center;
-  font-size: 7vh;
+  font-size: 7vw;
   font-weight: 300;
   margin: 0px 0px 0px 0px;
 
@@ -96,4 +96,11 @@ div.weather #des{
   text-align: center;
   justify-content: center;
   margin: 0;
+}
+
+
+@media screen and (min-width: 1400px){
+  .temp{
+    font-size: 85px;
+  }
 }

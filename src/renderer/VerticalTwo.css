@@ -1,0 +1,25 @@
+.second-second-vertical-bar{
+  overflow: hidden;
+  padding: 2.5% 2.5% 2.5% 2.5%;
+  background: rgb(40, 40, 40);
+  height: 60vh;
+  position: absolute;
+  bottom: 0px;
+}
+
+.second-third-vertical-bar{
+  height: 70%;
+  margin: 0% 2.5% 2.5% 2.5%;
+  overflow-y: auto;
+  border-radius: 15px;
+}
+
+.component-holder.two img.bg-image{
+  height: 40vh;
+}
+
+.second-second-vertical-bar .second-vertical-bar{
+  margin-bottom: 4%;
+}
+
+
