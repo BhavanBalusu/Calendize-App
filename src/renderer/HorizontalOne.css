@@ -9,7 +9,7 @@ body {
   overflow: hidden;
 }
 
-img.bg-image {
+.component-holder img.bg-image {
   position: fixed;
   width: 100vw;
   height: 100%;

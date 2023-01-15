@@ -8,6 +8,7 @@ import '../Styles/SignIn.css';
 
 function SignIn() {
   const [email, setEmail] = useState('');
+  window.electron.ipcRenderer.sendMessage('go-to-login');
   const [pass, setPass] = useState('');
   const [currUser, loading, err] = useAuthState(auth);
   const nav = useNavigate();

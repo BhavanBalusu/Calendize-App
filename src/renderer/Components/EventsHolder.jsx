@@ -54,7 +54,7 @@ export default function EventsHolder() {
             let dur = data.duration;
 
 
-            eventsArr.push({ name: data.name, details: data.details, day: data.day.toDate(), start_time: timeStr, duration: dur, docID: event.id, user: user, end_time: timeStr2 })
+            eventsArr.push({ name: data.name, details: data.details, day: data.day.toDate(), start_time: timeStr, duration: dur, docID: event.id, user: user, end_time: timeStr2, end: data.end.toDate() })
           })
 
           setEvents(eventsArr)

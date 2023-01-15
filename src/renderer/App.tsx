@@ -3,11 +3,18 @@ import { useEffect, useState, useRef } from 'react';
 import './HorizontalOne.css';
 import './HorizontalTwo.css';
 import './VerticalOne.css';
-import './VerticalTwo.css'
+import './VerticalTwo.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Weather from './Components/Weather';
 // import Time from './Components/Time';
-import { collection, where, query, getDocs, doc, onSnapshot } from 'firebase/firestore';
+import {
+  collection,
+  where,
+  query,
+  getDocs,
+  doc,
+  onSnapshot,
+} from 'firebase/firestore';
 
 import Sign from './Components/SignIn';
 import Register from './Components/Register';
@@ -23,6 +30,8 @@ import { type } from 'os';
 
 const Main = () => {
   // const startTimer = () => (hideElements = setInterval(hideMouse, 3000));
+  // IpcRenderer.send('fullscreen-window');
+  window.electron.ipcRenderer.sendMessage('go-to-fullscreen');
   const imgRef = useRef<HTMLImageElement>();
   let index = 1;
   const [user, setUser] = useState('');
@@ -42,7 +51,7 @@ const Main = () => {
       const userID = userDoc.docs[0].id;
       const data = userDoc.docs[0].data();
       setUser(userID);
-      console.log(data.layout)
+      console.log(data.layout);
       setLayout(data.layout);
     } catch (err) {
       console.log(err);
@@ -71,8 +80,6 @@ const Main = () => {
 
   // }, [currUser])
 
-
-
   // const getUserLayout = async () => {
   //   if (currUser == null) {
   //     return;
@@ -95,8 +102,6 @@ const Main = () => {
 
   //   }
   // }
-
-
 
   const hideMouse = () => {
     const getMouseCoords = () => {
@@ -180,32 +185,31 @@ const Main = () => {
     );
   };
 
-
   const HorizontalTwo = () => {
     return (
       <div className="horizontal-two-holder">
-      <div className="image-time-holder">
-        <NavigationBar text={'disp'} />
-        <div className="timeWidget">
-          <Time />
+        <div className="image-time-holder">
+          <NavigationBar text={'disp'} />
+          <div className="timeWidget">
+            <Time />
+          </div>
+          <img className="bg-image" src="" alt="" ref={imgRef} />
         </div>
-        <img className="bg-image" src="" alt="" ref={imgRef} />
+        <div className="widgets-holder">
+          <div className="box1">
+            <Weather />
+            <RssLinkHolder uid={user} />
+          </div>
+          <div className="box2">
+            <EventsHolder />
+          </div>
+        </div>
       </div>
-      <div className="widgets-holder">
-        <div className="box1">
-          <Weather />
-          <RssLinkHolder uid={user} />
-        </div>
-        <div className="box2">
-          <EventsHolder />
-        </div>
-      </div>
-    </div>
     );
   };
 
-  const VerticalOne = () =>{
-    return(
+  const VerticalOne = () => {
+    return (
       <div className="component-holder">
         <NavigationBar text={'disp'} />
         <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
@@ -227,8 +231,8 @@ const Main = () => {
     );
   };
 
-  const VerticalTwo = () =>{
-    return(
+  const VerticalTwo = () => {
+    return (
       <div className="component-holder two">
         <NavigationBar text={'disp'} />
         <img className="bg-image" src="" alt="" width={100} ref={imgRef} />
@@ -253,25 +257,22 @@ const Main = () => {
     );
   };
 
-  function finalLayout(){
-    if(layout==="H1"){
-      return <HorizontalOne/>;
-    }
-    else if(layout ==="H2"){
-      return <HorizontalTwo/>;
-    }
-    else if(layout === "V1"){
-      return <VerticalOne/>;
-    } else{
-      return <VerticalTwo/>;
+  function finalLayout() {
+    if (layout === 'H1') {
+      return <HorizontalOne />;
+    } else if (layout === 'H2') {
+      return <HorizontalTwo />;
+    } else if (layout === 'V1') {
+      return <VerticalOne />;
+    } else {
+      return <VerticalTwo />;
     }
   }
 
-  return finalLayout()
+  return finalLayout();
 };
 
 export default function App() {
-
   return (
     <Router>
       <Routes>

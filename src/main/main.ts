@@ -71,8 +71,8 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 480,
+    height: 680,
     icon: getAssetPath('icon.png'),
     webPreferences: {
       preload: app.isPackaged
@@ -92,6 +92,16 @@ const createWindow = async () => {
     } else {
       mainWindow.show();
     }
+  });
+
+  ipcMain.on('go-to-fullscreen', (event) => {
+    let browserWindow = BrowserWindow.fromWebContents(event.sender);
+    browserWindow?.setFullScreen(true);
+  });
+
+  ipcMain.on('go-to-login', (event) => {
+    let browserWindow = BrowserWindow.fromWebContents(event.sender);
+    browserWindow?.setFullScreen(false);
   });
 
   mainWindow.on('closed', () => {

@@ -10,6 +10,12 @@
   text-align: center;
 }
 
+div.horizontal-two-holder div.image-time-holder img.bg-image {
+  /* height: 100vh; */
+  width: auto;
+  z-index: -1;
+}
+
 .horizontal-two-holder .image-time-holder .timeWidget {
   margin-top: 100px;
 }

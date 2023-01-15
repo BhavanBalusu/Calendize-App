@@ -8,10 +8,10 @@ function Photo() {
 
   let [pics, setPics] = useState(null)
 
-  function inputChange(e) {
-    const file = e.target.files[0]
+  function inputChange(e, x) {
+    const file = e.target.files[x]
     let added = true;
-    if (!file) return;
+    if (!file) return false;
     getBase64(file).then(base64 => {
       let arr = []
       if (localStorage.getItem("pictures")) {
@@ -20,23 +20,34 @@ function Photo() {
       if (arr.includes(base64) === false) arr.push(base64)
       else {
         alert("this file has already been added.")
-        added = false;
+        return false;
       }
       localStorage.setItem("pictures", JSON.stringify(arr))
       try {
         localStorage.setItem("pictures", JSON.stringify(arr))
       } catch (e) {
-        added = false
         alert("Unable to add image")
+        return false
       }
 
       if (added) {
-        alert("Your image was successfully saved!")
         setPics(JSON.parse(localStorage.getItem("pictures")))
+        return true;
       }
     })
 
   }
+
+   function addImages(e) {
+    const files = e.target.files
+    let added = true;
+
+    for (let i = 0; i < files.length; i++) {
+      added = inputChange(e, i);
+    }
+
+  }
+
   function getBase64(file) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader()
@@ -65,10 +76,10 @@ function Photo() {
   return (
     <div className="image-holder">
       <NavigationBar text={"photo"} />
-      <form onSubmit={e => { e.preventDefault(); console.log((JSON.parse(localStorage.pictures))) }}>
-        <h1> Please upload image files to add to events to your calendar </h1>
+      <form onSubmit={e => { e.preventDefault(); }}>
+        <h1> Please upload image files to be displayed on your screen</h1>
         <label htmlFor="file-input" className='file-label'><i class="bi bi-upload"></i>Upload Image</label>
-        <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/svg, image/png" onChange={(e) => inputChange(e)} />
+        <input id="file-input" type="file" accept="image/jpg, image/jpeg, image/svg, image/png" multiple onChange={(e) => addImages(e)} />
       </form>
       <button className="delete-button" onClick={() => {if(confirm("Delete all images?")){deleteImages();}}}>Clear all images</button>
       <h2>View Added Images</h2>
