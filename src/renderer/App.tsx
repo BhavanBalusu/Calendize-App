@@ -29,7 +29,7 @@ import RssLinkHolder from './Components/RssLinkHolder';
 import { type } from 'os';
 
 const Main = () => {
-  // const startTimer = () => (hideElements = setInterval(hideMouse, 3000));
+  const startTimer = () => (hideElements = setInterval(hideMouse, 3000));
   // IpcRenderer.send('fullscreen-window');
   window.electron.ipcRenderer.sendMessage('go-to-fullscreen');
   const imgRef = useRef<HTMLImageElement>();
@@ -121,7 +121,7 @@ const Main = () => {
 
     btn?.addEventListener('mouseover', () => {
       onBtn = true;
-      // clearInterval(hideElements);
+      clearInterval(hideElements);
     });
 
     btn?.addEventListener('mouseout', () => {
@@ -157,7 +157,7 @@ const Main = () => {
     index++;
   };
 
-  // let hideElements = setInterval(hideMouse, 3000);
+  let hideElements = setInterval(hideMouse, 3000);
   // changeImage();
   let chngImg = setInterval(changeImage, 1000 * 10);
 

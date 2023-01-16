@@ -38,6 +38,7 @@ function NavigationBar(props) {
             Edit Display
           </button>
           </a>
+          <button className='photo' onClick={() => location.reload()}>Reload Page</button>
         </div>
         <div className='logout-holder'>
             <button className="logout" onClick={() => { logout(); location.reload() }} >
